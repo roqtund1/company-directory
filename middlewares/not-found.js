@@ -1,0 +1,1 @@
+module.exports = (req, res) => res.send('Route does not exits.') ;

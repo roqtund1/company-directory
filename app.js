@@ -32,7 +32,7 @@ app.use(helmet());
 app.use(cors());
 app.use(xss());
 
-app.use('/api/v1/', employeesRouter)
+app.use('/api/v1/employees', employeesRouter)
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware)

@@ -1,0 +1,219 @@
+openapi: 3.0.0
+info:
+  title: Company-Directory
+  contact: {}
+  version: '1.0'
+servers:
+- url: https://company-directory.onrender.com/api/v1
+  variables: {}
+paths:
+  /employees:
+    get:
+      tags:
+      - Employees
+      summary: Get All Employees
+      operationId: GetAllEmployees
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+    post:
+      tags:
+      - Employees
+      summary: Create An Employee
+      operationId: CreateAnEmployee
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreateAnEmployeeRequest'
+              - example:
+                  name: John Doe
+                  age: 30
+                  education: Bachelor of Science
+                  yearsOfExperience: 5
+                  profile: Software Engineer
+                  department: Engineering
+                  salary: 80000
+            example:
+              name: John Doe
+              age: 30
+              education: Bachelor of Science
+              yearsOfExperience: 5
+              profile: Software Engineer
+              department: Engineering
+              salary: 80000
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /employees/{id}:
+    get:
+      tags:
+      - Employees
+      summary: Get An Employee
+      operationId: GetAnEmployee
+      parameters:
+      - name: id
+        in: path
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+    patch:
+      tags:
+      - Employees
+      summary: Update An Employee
+      operationId: UpdateAnEmployee
+      parameters:
+      - name: id
+        in: path
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdateAnEmployeeRequest'
+              - example:
+                  name: Roqeeb Olatunde
+                  age: 21
+                  education: Doctoral Degree
+                  yearsOfExperience: 2
+                  profile: Developer I
+                  department: Business Development
+                  salary: 8000
+            example:
+              name: Roqeeb Olatunde
+              age: 21
+              education: Doctoral Degree
+              yearsOfExperience: 2
+              profile: Developer I
+              department: Business Development
+              salary: 8000
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+    delete:
+      tags:
+      - Employees
+      summary: Delete An Employee
+      operationId: DeleteAnEmployee
+      parameters:
+      - name: id
+        in: path
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+components:
+  schemas:
+    UpdateAnEmployeeRequest:
+      title: UpdateAnEmployeeRequest
+      required:
+      - name
+      - age
+      - education
+      - yearsOfExperience
+      - profile
+      - department
+      - salary
+      type: object
+      properties:
+        name:
+          type: string
+        age:
+          type: integer
+          format: int32
+        education:
+          type: string
+        yearsOfExperience:
+          type: integer
+          format: int32
+        profile:
+          type: string
+        department:
+          type: string
+        salary:
+          type: integer
+          format: int32
+      example:
+        name: Roqeeb Olatunde
+        age: 21
+        education: Doctoral Degree
+        yearsOfExperience: 2
+        profile: Developer I
+        department: Business Development
+        salary: 8000
+    CreateAnEmployeeRequest:
+      title: CreateAnEmployeeRequest
+      required:
+      - name
+      - age
+      - education
+      - yearsOfExperience
+      - profile
+      - department
+      - salary
+      type: object
+      properties:
+        name:
+          type: string
+        age:
+          type: integer
+          format: int32
+        education:
+          type: string
+        yearsOfExperience:
+          type: integer
+          format: int32
+        profile:
+          type: string
+        department:
+          type: string
+        salary:
+          type: integer
+          format: int32
+      example:
+        name: John Doe
+        age: 30
+        education: Bachelor of Science
+        yearsOfExperience: 5
+        profile: Software Engineer
+        department: Engineering
+        salary: 80000
+tags:
+- name: Employees
+  description: ''

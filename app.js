@@ -19,6 +19,7 @@ const app = express();
 const connectDB = require("./db/connect");
 
 const employeesRouter = require('./routes/employees');
+const productsRouter = require('./routes/products');
 
 const notFoundMiddleware = require('./middlewares/not-found');
 const errorHandlerMiddleware = require('./middlewares/error-handler');
@@ -41,6 +42,7 @@ app.use(cors());
 app.use(xss());
 
 app.use('/api/v1/employees', employeesRouter)
+app.use('/api/v1/products', productsRouter)
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware)

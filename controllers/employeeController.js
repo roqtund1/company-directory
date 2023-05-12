@@ -23,6 +23,7 @@ const getEmployee = async (req, res) => {
   res.json({ employee });
 };
 
+
 const createEmployee = async (req, res) => {
   const { body } = req;
 
